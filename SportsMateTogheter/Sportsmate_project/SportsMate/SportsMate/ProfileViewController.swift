@@ -10,12 +10,18 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
+    @IBOutlet weak var profileImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setImage()
         // Do any additional setup after loading the view.
     }
     
+    func setImage(){
+        profileImage.image = UIImage(named: "imageTest")
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+    }
 
     /*
     // MARK: - Navigation

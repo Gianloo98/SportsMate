@@ -12,6 +12,7 @@ class MyEventsViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var myEventControl: UISegmentedControl!
     @IBOutlet weak var myEventList: UITableView!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
     var name = ["Partita Salvatore","Partita Gianluca"]
     var distance = ["2 km da te","5 km da te"]
@@ -23,9 +24,13 @@ class MyEventsViewController: UIViewController, UITableViewDelegate, UITableView
     func currentState(){
         if myEventControl.selectedSegmentIndex == 0 {
             showEventsCreated = true
+            self.navigationItem.rightBarButtonItem?.title = "Add"
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
         }
         else if myEventControl.selectedSegmentIndex == 1 {
             showEventsCreated = false
+            self.navigationItem.rightBarButtonItem?.title = ""
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
         }
     }
     
@@ -57,7 +62,7 @@ class MyEventsViewController: UIViewController, UITableViewDelegate, UITableView
     // to see if sharing works
     
     @IBAction func eventControlPressed(_ sender: Any) {
-        checkScreen()
+        viewDidLoad()
         myEventList.reloadData()
     }
     
@@ -73,6 +78,17 @@ class MyEventsViewController: UIViewController, UITableViewDelegate, UITableView
         cell.label4.text = type[indexPath.item]
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let sb = UIStoryboard(name: "Main", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: "eventDetailsId") as! EventDetailsViewController
+        if showEventsCreated {
+            vc.currentState = .created
+        } else {
+            vc.currentState = .joined
+        }
+         self.navigationController?.pushViewController(vc, animated: true)
     }
     
 

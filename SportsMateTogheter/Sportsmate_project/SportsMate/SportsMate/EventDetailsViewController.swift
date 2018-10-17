@@ -14,26 +14,41 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var map: MKMapView!
     @IBOutlet weak var joinButton: UIButton!
     @IBOutlet weak var unjoinButton: UIButton!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     
-    @IBOutlet var creatorImage: UIImage?
-    var joined :Bool = false
+    @IBOutlet weak var creatorImage: UIImageView!
+    
+    enum state {
+        case unjoined
+        case joined
+        case created
+    }
+    var currentState = state.unjoined
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        creatorImage.image = UIImage(named: "imageTest")
+        creatorImage.layer.cornerRadius = creatorImage.frame.size.width/2
         checkState()
-        creatorImage = UIImage(named: "imageTest")
+        
         // Do any additional setup after loading the view.
     }
     
     func checkState (){
-        if joined {
+        if currentState == state.joined {
             joinButton.isHidden = true
             unjoinButton.isHidden = false
-            joined=false
-        } else {
+            self.navigationItem.rightBarButtonItem = nil
+            currentState = .unjoined
+        } else if currentState == state.unjoined {
             joinButton.isHidden = false
             unjoinButton.isHidden = true
-            joined=true
+            self.navigationItem.rightBarButtonItem = nil
+            currentState = .joined
+        } else if currentState == state.created {
+            joinButton.isHidden = true
+            unjoinButton.isHidden = true
+            self.navigationItem.rightBarButtonItem = self.editButton
         }
     }
     
