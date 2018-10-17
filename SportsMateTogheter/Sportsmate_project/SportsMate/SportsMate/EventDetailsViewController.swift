@@ -29,6 +29,7 @@ class EventDetailsViewController: UIViewController {
         super.viewDidLoad()
         creatorImage.image = UIImage(named: "imageTest")
         creatorImage.layer.cornerRadius = creatorImage.frame.size.width/2
+        creatorImage.clipsToBounds = true
         checkState()
         
         // Do any additional setup after loading the view.

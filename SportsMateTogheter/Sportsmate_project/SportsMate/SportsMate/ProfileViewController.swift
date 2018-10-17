@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     func setImage(){
         profileImage.image = UIImage(named: "imageTest")
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        profileImage.clipsToBounds = true
     }
 
     /*
