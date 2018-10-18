@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D49049E26F0B1BC4A77E935 /* Pods_SportsMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA1F568BB30C69B33D5C19 /* Pods_SportsMate.framework */; };
+		B1B5C27F2179077200D42385 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5C27E2179077200D42385 /* UIColorExtension.swift */; };
 		C805CE09216FA3A600BB5EC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C805CE08216FA3A600BB5EC3 /* AppDelegate.swift */; };
 		C805CE0B216FA3A600BB5EC3 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C805CE0A216FA3A600BB5EC3 /* MyEventsViewController.swift */; };
 		C805CE0E216FA3A600BB5EC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C805CE0C216FA3A600BB5EC3 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1B5C27E2179077200D42385 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		BAC058E37D88A35704DEE83A /* Pods-SportsMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportsMate/Pods-SportsMate.debug.xcconfig"; sourceTree = "<group>"; };
 		C805CE05216FA3A600BB5EC3 /* SportsMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C805CE08216FA3A600BB5EC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B1B5C27D2179076300D42385 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B1B5C27E2179077200D42385 /* UIColorExtension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		C805CDFC216FA3A600BB5EC3 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +138,7 @@
 		C805CE07216FA3A600BB5EC3 /* SportsMate */ = {
 			isa = PBXGroup;
 			children = (
+				B1B5C27D2179076300D42385 /* extensions */,
 				C805CE08216FA3A600BB5EC3 /* AppDelegate.swift */,
 				C805CE0A216FA3A600BB5EC3 /* MyEventsViewController.swift */,
 				C805CE0C216FA3A600BB5EC3 /* Main.storyboard */,
@@ -361,6 +372,7 @@
 				C81FB4AC2174D84400442649 /* EventTableViewCell.swift in Sources */,
 				C8E4DD3421774C6600F93605 /* EventDetailsViewController.swift in Sources */,
 				C8C7FF102176025000122FB2 /* ProfileViewController.swift in Sources */,
+				B1B5C27F2179077200D42385 /* UIColorExtension.swift in Sources */,
 				C81FB4A821749BD000442649 /* SportCollectionViewCell.swift in Sources */,
 				C8AEBB0D21707FC700747345 /* SportsViewController.swift in Sources */,
 			);
