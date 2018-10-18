@@ -19,18 +19,6 @@ class SportsViewController: UIViewController, UICollectionViewDelegate, UICollec
     var sportImage: [String] = []
     var sportColour: [String] = []
     
-    let sportsImages :[UIImage] = [
-        UIImage(named: "soccer")!,
-        UIImage(named: "basket")!,
-        UIImage(named: "volleyball")!,
-        UIImage(named: "tennis")!,
-        UIImage(named: "shoes")!,
-        UIImage(named: "cycling")!,
-        UIImage(named: "trekking")!,
-        UIImage(named: "rugby")!,
-    ]
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true;
