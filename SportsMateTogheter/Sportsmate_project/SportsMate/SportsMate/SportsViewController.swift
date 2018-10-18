@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  SportsViewController.swift
 //  SportsMate
 //
 //  Created by Salvatore Ercolano on 12/10/2018.
@@ -13,7 +13,12 @@ class SportsViewController: UIViewController, UICollectionViewDelegate, UICollec
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let sports = ["Football","Basket","Volleyball","Tennis","Jogging","Cycling","Trekking","Rugby"]
+    var sportId: [Int] = []
+    var sportName: [String] = []
+    var sportLabel: [String] = []
+    var sportImage: [String] = []
+    var sportColour: [String] = []
+    
     let sportsImages :[UIImage] = [
         UIImage(named: "soccer")!,
         UIImage(named: "basket")!,
@@ -24,43 +29,92 @@ class SportsViewController: UIViewController, UICollectionViewDelegate, UICollec
         UIImage(named: "trekking")!,
         UIImage(named: "rugby")!,
     ]
-    let sportsColor :[UIColor] = [
-        UIColor(cgColor: #colorLiteral(red: 0, green: 0.7137254902, blue: 0.07058823529, alpha: 0.8455693493)),
-        UIColor(cgColor: #colorLiteral(red: 0.5176470588, green: 0.3019607843, blue: 0, alpha: 0.8496628852)),
-        UIColor(cgColor: #colorLiteral(red: 0.968627451, green: 0.9058823529, blue: 0, alpha: 0.853301584)),
-        UIColor(cgColor: #colorLiteral(red: 1, green: 0.3568627451, blue: 0, alpha: 0.847254923)),
-        UIColor(cgColor: #colorLiteral(red: 0.5882352941, green: 0.6235294118, blue: 0.6666666667, alpha: 0.8983037244)),
-        UIColor(cgColor: #colorLiteral(red: 0.1137254902, green: 0.2392156863, blue: 1, alpha: 0.8)),
-        UIColor(cgColor: #colorLiteral(red: 0.1294117647, green: 0.09803921569, blue: 0.0862745098, alpha: 0.8)),
-        UIColor(cgColor: #colorLiteral(red: 0.8705882353, green: 0.6274509804, blue: 0.1568627451, alpha: 0.8519905822))
-    ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.prefersLargeTitles = true;
         collectionView.dataSource = self
         collectionView.delegate = self
-
+        
         // Do any additional setup after loading the view.
+        
+        getEventTypes()
     }
+    
+    
+    
+    
+    // JSON FUNCTIONS
+    func getEventTypes() {
+        let urlFind = URL(string: "https://sportsmate.altervista.org/appJson.php?eventsType")
+        var request = URLRequest(url: urlFind!)
+        request.httpMethod = "POST"
+        request.httpBody = "eventType=2".data(using: .utf8)
+     
+        URLSession.shared.dataTask(with:request, completionHandler: { (data, response, error) in
+            guard let data = data, error == nil else { return }
+     
+            do {
+                // Start Parsing Json
+                if let json = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? NSDictionary {
+                    
+                    if let eventTypes = json!.value(forKey: "eventTypes") as? NSArray {
+                        for eventType in eventTypes {
+                            if let eventTypeDict = eventType as? NSDictionary {
+                                if let name = eventTypeDict.value(forKey: "id"){
+                                    self.sportId.append(name as! Int)
+                                }
+                                if let name = eventTypeDict.value(forKey: "name"){
+                                    self.sportName.append(name as! String)
+                                }
+                                if let name = eventTypeDict.value(forKey: "label"){
+                                    self.sportLabel.append(name as! String)
+                                }
+                                if let name = eventTypeDict.value(forKey: "image"){
+                                    self.sportImage.append(name as! String)
+                                }
+                                if let name = eventTypeDict.value(forKey: "colour"){
+                                    self.sportColour.append(name as! String)
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // End Parsing Json and Reload Collection View
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        }).resume()
+     }
+    // END JSON FUNCTIONS
+    
+    
+    
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)]
-//        self.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
-//        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 0, green: 0.4784313725, blue: 1, alpha: 1)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sports.count
+        return self.sportId.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! SportCollectionViewCell
-        cell.sportLabel.text = sports[indexPath.item]
-        cell.sportImage.image = sportsImages[indexPath.item]
-        cell.backgroundColor = sportsColor[indexPath.item]
+        
+        let imgUrl = NSURL(string: sportImage[indexPath.item])
+        let data = NSData(contentsOf: (imgUrl as URL?)!)
+        
+        cell.sportLabel.text = sportName[indexPath.item]
+        cell.sportImage.image = UIImage(data: data! as Data)
+        cell.backgroundColor = UIColor(hexString: sportColour[indexPath.item])
+        
         return cell
     }
     
@@ -71,23 +125,7 @@ class SportsViewController: UIViewController, UICollectionViewDelegate, UICollec
         vc.titleLabel = selectedCell.sportLabel.text
         vc.titleColor = selectedCell.backgroundColor ?? #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     
-//        performSegue(withIdentifier: "showSport", sender: self)
-//        self.navigationController?.present(vc, animated: true, completion: nil)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let vc = segue.destination as! FinderViewController
-//        vc.testo = collectionView.indexPathsForSelectedItems?
-//    }
 
 }
