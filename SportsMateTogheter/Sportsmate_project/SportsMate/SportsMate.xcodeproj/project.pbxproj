@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7D49049E26F0B1BC4A77E935 /* Pods_SportsMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DA1F568BB30C69B33D5C19 /* Pods_SportsMate.framework */; };
 		B1B5C27F2179077200D42385 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B5C27E2179077200D42385 /* UIColorExtension.swift */; };
 		C805CE09216FA3A600BB5EC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C805CE08216FA3A600BB5EC3 /* AppDelegate.swift */; };
 		C805CE0B216FA3A600BB5EC3 /* MyEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C805CE0A216FA3A600BB5EC3 /* MyEventsViewController.swift */; };
@@ -45,7 +44,6 @@
 
 /* Begin PBXFileReference section */
 		B1B5C27E2179077200D42385 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
-		BAC058E37D88A35704DEE83A /* Pods-SportsMate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsMate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportsMate/Pods-SportsMate.debug.xcconfig"; sourceTree = "<group>"; };
 		C805CE05216FA3A600BB5EC3 /* SportsMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SportsMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C805CE08216FA3A600BB5EC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C805CE0A216FA3A600BB5EC3 /* MyEventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventsViewController.swift; sourceTree = "<group>"; };
@@ -67,19 +65,9 @@
 		C8C7FF0B2175D57700122FB2 /* FavouritesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewCell.swift; sourceTree = "<group>"; };
 		C8C7FF0F2176025000122FB2 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C8E4DD3321774C6600F93605 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
-		E2E905A5F6C7F8DABF32144A /* Pods-SportsMate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsMate.release.xcconfig"; path = "Pods/Target Support Files/Pods-SportsMate/Pods-SportsMate.release.xcconfig"; sourceTree = "<group>"; };
-		F7DA1F568BB30C69B33D5C19 /* Pods_SportsMate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportsMate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		C805CE02216FA3A600BB5EC3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				7D49049E26F0B1BC4A77E935 /* Pods_SportsMate.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		C805CE16216FA3A800BB5EC3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -97,14 +85,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		632D7222D731C8405072503C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F7DA1F568BB30C69B33D5C19 /* Pods_SportsMate.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B1B5C27D2179076300D42385 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -120,8 +100,6 @@
 				C805CE1C216FA3A800BB5EC3 /* SportsMateTests */,
 				C805CE27216FA3A800BB5EC3 /* SportsMateUITests */,
 				C805CE06216FA3A600BB5EC3 /* Products */,
-				FD0F65872C139C1EAF881BB5 /* Pods */,
-				632D7222D731C8405072503C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,7 +116,6 @@
 		C805CE07216FA3A600BB5EC3 /* SportsMate */ = {
 			isa = PBXGroup;
 			children = (
-				B1B5C27D2179076300D42385 /* extensions */,
 				C805CE08216FA3A600BB5EC3 /* AppDelegate.swift */,
 				C805CE0A216FA3A600BB5EC3 /* MyEventsViewController.swift */,
 				C805CE0C216FA3A600BB5EC3 /* Main.storyboard */,
@@ -153,6 +130,7 @@
 				C8AEBB0C21707FC700747345 /* SportsViewController.swift */,
 				C8AEBB0E217085F300747345 /* FinderViewController.swift */,
 				C8E4DD3321774C6600F93605 /* EventDetailsViewController.swift */,
+				B1B5C27D2179076300D42385 /* extensions */,
 			);
 			path = SportsMate;
 			sourceTree = "<group>";
@@ -175,15 +153,6 @@
 			path = SportsMateUITests;
 			sourceTree = "<group>";
 		};
-		FD0F65872C139C1EAF881BB5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BAC058E37D88A35704DEE83A /* Pods-SportsMate.debug.xcconfig */,
-				E2E905A5F6C7F8DABF32144A /* Pods-SportsMate.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,11 +160,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C805CE2D216FA3A800BB5EC3 /* Build configuration list for PBXNativeTarget "SportsMate" */;
 			buildPhases = (
-				5D18D5FCF9E1DA03B0F2BC09 /* [CP] Check Pods Manifest.lock */,
 				C805CE01216FA3A600BB5EC3 /* Sources */,
-				C805CE02216FA3A600BB5EC3 /* Frameworks */,
 				C805CE03216FA3A600BB5EC3 /* Resources */,
-				17F277306E805B7408C32823 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -311,53 +277,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		17F277306E805B7408C32823 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SportsMate/Pods-SportsMate-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SportsMate/Pods-SportsMate-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5D18D5FCF9E1DA03B0F2BC09 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SportsMate-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C805CE01216FA3A600BB5EC3 /* Sources */ = {
@@ -547,7 +466,6 @@
 		};
 		C805CE2E216FA3A800BB5EC3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BAC058E37D88A35704DEE83A /* Pods-SportsMate.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -568,7 +486,6 @@
 		};
 		C805CE2F216FA3A800BB5EC3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E2E905A5F6C7F8DABF32144A /* Pods-SportsMate.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
